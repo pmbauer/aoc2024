@@ -1,0 +1,29 @@
+{:paths ["src" "resources"]
+ :deps {org.clojure/clojure {:mvn/version "1.12.0"}
+        instaparse/instaparse {:mvn/version "1.5.0"}
+        com.hyperfiddle/rcf {:mvn/version "20220926-202227"}}
+ :aliases
+ {:env/dev
+  {:extra-paths ["dev"]
+   :extra-deps {org.clojure/tools.trace {:mvn/version "0.8.0"}}}
+
+  ;; clj -M:env/dev:repl
+  :repl
+  {:extra-deps {nrepl/nrepl                   {:mvn/version "1.3.0"}
+                cider/cider-nrepl             {:mvn/version "0.50.2"}
+                refactor-nrepl/refactor-nrepl {:mvn/version "3.10.0"}
+                com.bhauman/rebel-readline    {:mvn/version "0.1.4"}}
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"
+                "-i"
+                "-f" "rebel-readline.main/-main"]}
+
+  ;; clojure -X:test
+  :test
+  {:extra-paths ["test"]
+   :exec-fn test/run}
+
+  ;; clojure -T:build jar
+  :build
+  {:deps {io.github.clojure/tools.build {:git/tag "v0.10.6" :git/sha "52cf7d6"}}
+   :ns-default build}}}
