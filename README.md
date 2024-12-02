@@ -39,6 +39,10 @@ SELECT SUM(loc*count)
 FROM pair_counts;
 ```
 
+### 2a and 2b
+
+- [src/codes/bauer/aoc2024/02.clj](https://github.com/pmbauer/aoc2024/blob/main/src/codes/bauer/aoc2024/02.clj)
+
 ## Usage
 
 Run the project's tests contained in [Rich Comment Forms](https://github.com/hyperfiddle/rcf):
