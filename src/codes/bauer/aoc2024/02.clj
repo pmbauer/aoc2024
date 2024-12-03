@@ -1,5 +1,5 @@
 (ns codes.bauer.aoc2024.02
-  "aoc 01"
+  "aoc 02"
   (:require [clojure.string :as str]
             [clojure.java.io :refer [resource reader]]))
 
@@ -21,40 +21,33 @@
       ::unsafe)))
 
 (defn remove-nth [v n]
-  (vec (concat (subvec v 0 n)
-               (subvec v (inc n)))))
+  (vec (concat (subvec v 0 n) (subvec v (inc n)))))
 
 (defn status-b [report]
-  (let [status (status-a report)]
-    (if (not= status ::unsafe)
-      status
-      (if-let [status (->> (range (count report))
-                           (map #(status-a (remove-nth report %)))
-                           (some #{::increasing ::decreasing}))]
-        status
-        ::unsafe))))
+  (or (->> (range (count report))
+           (map #(remove-nth report %))
+           (cons report)
+           (map status-a)
+           (some #{::increasing ::decreasing}))
+      ::unsafe))
 
 (def csv-integer-xform
   (comp (map str/trim)
         (map Integer/parseInt)))
 
-(defn categorize-xform [status-fn]
-  (comp (map #(into [] csv-integer-xform (str/split % #",")))
-        (map status-fn)))
+(defn count-safe [rname status-fn]
+  (with-open [r (reader (resource rname))]
+    (->> (line-seq r)
+         (into [] (comp (map #(into [] csv-integer-xform (str/split % #",")))
+                        (map status-fn)
+                        (filter #{::increasing ::decreasing})))
+         count)))
 
 (comment
-  (range (count [0 0]))
+  ;; part 1
+  (count-safe "02a.csv" status-a)
 
-  (with-open [r (reader (resource "02a.csv"))]
-    (->> (line-seq r)
-         (into [] (comp (categorize-xform status-a)
-                        (filter #{::increasing ::decreasing})))
-         count))
-
-  (with-open [r (reader (resource "02a.csv"))]
-    (->> (line-seq r)
-         (into [] (comp (categorize-xform status-b)
-                        (filter #{::increasing ::decreasing})))
-         count))
+  ;; part 2
+  (count-safe "02a.csv" status-b)
 
   (comment))
