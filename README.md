@@ -43,6 +43,14 @@ FROM pair_counts;
 
 - [src/codes/bauer/aoc2024/02.clj](https://github.com/pmbauer/aoc2024/blob/main/src/codes/bauer/aoc2024/02.clj)
 
+### 3a and 3b
+
+- [src/codes/bauer/aoc2024/03.clj](https://github.com/pmbauer/aoc2024/blob/main/src/codes/bauer/aoc2024/03.clj)
+
+![](https://media.cleanshot.cloud/media/40959/9imKrro1YrToAMNxgSsQL4cJ1RJli1Bwazdmzolf.jpeg?Expires=1733274859&Signature=Xy-cYn03cYOMl4c3mG26-RyRZaFZHMwKITTjhCq2sP7H2SkIGvczoc9K-AQcRVKvDzJc9sZHcigLXi9WPZqecN7lA3aIgpHtwYVkBRL97LgNTY0mgVdVut2RJutiempPCNykRCq~czoBz37v74lnqyjRFNvHZSrvIEtbIG1Aovd2DCLizl1zqVGs~rb82wplzTTMLsvzjdv-6qXfiKshZDGprX6OpYDo35uSiY1fnsx5s8X9mx7q5wDx46sQpadXSR0ajHTfmtLhg64TKWvXhQqAAR1LDGk80XayW4FYfJuS1bc5Zg~fnsR5h7~4w3AFlYLPwyKYw0xD-loYm0BH4g__&Key-Pair-Id=K269JMAT9ZF4GZ)
+
+![](https://media.cleanshot.cloud/media/40959/yJuC0Zoj2ac6ztwQs4BRHNui6xjK09B76NMyBiAx.jpeg?Expires=1733274814&Signature=Qmsv~my-hBDb5BMsfCReAdZgDCptBbsINaTqzi2tINrKH5blEbT-tf3o6d2~z2ulY4SGqDw-LP2jgiZHd4BSjouK89kUhR52ysJU3meR-zNUVL1zxmNTPbLCPuzrdgfoV0ad1FB17dbEUjsKxcqGpRPXUHroAYe~sEk-kgTLh1Z8J~rjRaavnn-Gy6TM9am4GD5lKlz3C9wr6ltyAmetndWFprR-lauI7cjSbxERKfdMMa8RINSNFlIK2TwLmX-breByk2q9h4eKcbgfT6Ae8xisMnR5VJ~D22D58HmW~8mX1SHLKPrsNxACo3aFNpo629j9QS-EG~V0RgPwlGZfjw__&Key-Pair-Id=K269JMAT9ZF4GZ)
+
 ## Usage
 
 Run the project's tests contained in [Rich Comment Forms](https://github.com/hyperfiddle/rcf):
