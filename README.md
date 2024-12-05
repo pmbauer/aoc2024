@@ -51,6 +51,10 @@ FROM pair_counts;
 
 ![](https://media.cleanshot.cloud/media/40959/yJuC0Zoj2ac6ztwQs4BRHNui6xjK09B76NMyBiAx.jpeg?Expires=1733274814&Signature=Qmsv~my-hBDb5BMsfCReAdZgDCptBbsINaTqzi2tINrKH5blEbT-tf3o6d2~z2ulY4SGqDw-LP2jgiZHd4BSjouK89kUhR52ysJU3meR-zNUVL1zxmNTPbLCPuzrdgfoV0ad1FB17dbEUjsKxcqGpRPXUHroAYe~sEk-kgTLh1Z8J~rjRaavnn-Gy6TM9am4GD5lKlz3C9wr6ltyAmetndWFprR-lauI7cjSbxERKfdMMa8RINSNFlIK2TwLmX-breByk2q9h4eKcbgfT6Ae8xisMnR5VJ~D22D58HmW~8mX1SHLKPrsNxACo3aFNpo629j9QS-EG~V0RgPwlGZfjw__&Key-Pair-Id=K269JMAT9ZF4GZ)
 
+### 4a and 4b
+
+- [src/codes/bauer/aoc2024/04.clj](https://github.com/pmbauer/aoc2024/blob/main/src/codes/bauer/aoc2024/04.clj)
+
 ## Usage
 
 Run the project's tests contained in [Rich Comment Forms](https://github.com/hyperfiddle/rcf):
