@@ -55,6 +55,10 @@ FROM pair_counts;
 
 - [src/codes/bauer/aoc2024/04.clj](https://github.com/pmbauer/aoc2024/blob/main/src/codes/bauer/aoc2024/04.clj)
 
+### 5a and 5b
+
+- [src/codes/bauer/aoc2024/05.clj](https://github.com/pmbauer/aoc2024/blob/main/src/codes/bauer/aoc2024/05.clj)
+
 ## Usage
 
 Run the project's tests contained in [Rich Comment Forms](https://github.com/hyperfiddle/rcf):
