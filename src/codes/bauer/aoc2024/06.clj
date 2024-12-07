@@ -34,7 +34,7 @@
               [loc])))
 
 (defn safe-path
-  ([room-and-loc] (safe-path #{} (plot-path room-and-loc)))
+  ([ral] (safe-path #{} (plot-path ral)))
   ([traversed? path]
    (lazy-seq
     (when-let [s (seq path)]
@@ -43,18 +43,18 @@
           [::loop]
           (cons next-step (safe-path (conj traversed? next-step) (rest s)))))))))
 
-(defn find-loops [[room loc]]
-  (->> (for [y (range (count room))
-             x (range (count (first room)))]
-         (when (= \. (nth (nth room y) x))
-           (let [room' (assoc-in room [y x] \#)]
-             (when (= ::loop (last (safe-path [room' loc])))
-               [x y]))))
+(defn find-loops [[room loc :as ral]]
+  (->> (for [[x y] (->> (rest (plot-path ral))
+                        (map (partial take 2))
+                        (into #{}))]
+         (let [room' (assoc-in room [y x] \#)]
+           (when (= ::loop (last (safe-path [room' loc])))
+             [x y])))
        (filter identity)))
 
 (defn part1 [room-name]
   (->> (read-room room-name)
-       (safe-path)
+       (plot-path)
        (map (partial take 2))
        (into #{})
        count))
