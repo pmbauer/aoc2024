@@ -59,6 +59,14 @@ FROM pair_counts;
 
 - [src/codes/bauer/aoc2024/05.clj](https://github.com/pmbauer/aoc2024/blob/main/src/codes/bauer/aoc2024/05.clj)
 
+### 6a and 6b
+
+- [src/codes/bauer/aoc2024/06.clj](https://github.com/pmbauer/aoc2024/blob/main/src/codes/bauer/aoc2024/06.clj)
+
+I did this with `lazy-seq` and `recur` because I wanted to needlessly recurse.  For fun.
+Well, it did make me re-curse.
+Clojure type error messages for destructured bindings are still awful and wrapping those errors in a `lazy-seq` makes debugging pretty gosh darn user hostile.  This keeps the rif-raf out. Never change, Clojure.
+
 ## Usage
 
 Run the project's tests contained in [Rich Comment Forms](https://github.com/hyperfiddle/rcf):
