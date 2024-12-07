@@ -28,36 +28,27 @@
         (recur room [x y (next-direction dir)])
         loc'))))
 
-(defn plot-path [[room loc]]
-  (lazy-seq (if-let [next-loc (step room loc)]
-              (cons loc (plot-path [room next-loc]))
-              [loc])))
-
-(defn safe-path
-  ([ral] (safe-path #{} (plot-path ral)))
+(defn plot-path
+  ([[room loc]]
+   (plot-path #{} (->> (iterate (partial step room) loc)
+                       (take-while identity))))
   ([traversed? path]
    (lazy-seq
     (when-let [s (seq path)]
       (let [next-step (first s)]
         (if (traversed? next-step)
           [::loop]
-          (cons next-step (safe-path (conj traversed? next-step) (rest s)))))))))
+          (cons next-step (plot-path (conj traversed? next-step) (rest s)))))))))
 
 (defn find-loops [[room loc :as ral]]
-  (->> (for [[x y] (->> (rest (plot-path ral))
-                        (map (partial take 2))
-                        (into #{}))]
-         (let [room' (assoc-in room [y x] \#)]
-           (when (= ::loop (last (safe-path [room' loc])))
-             [x y])))
-       (filter identity)))
+  ;;               guard path             [x y dir] -> [x y]     unique
+  (for [[x y] (->> (rest (plot-path ral)) (map (partial take 2)) (into #{}))
+        :let [room' (assoc-in room [y x] \#)]
+        :when (= ::loop (last (plot-path [room' loc])))]
+    [x y]))
 
 (defn part1 [room-name]
-  (->> (read-room room-name)
-       (plot-path)
-       (map (partial take 2))
-       (into #{})
-       count))
+  (->> (read-room room-name) (plot-path) (map (partial take 2)) (into #{}) count))
 
 (defn part2 [room-name]
   (->> (read-room room-name) (find-loops) count))
@@ -68,5 +59,5 @@
 
 (comment
   (part1 "06.in")
-  (part2 "06.in")
+  (time (part2 "06.in"))
   (comment))
