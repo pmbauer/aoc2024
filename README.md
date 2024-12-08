@@ -67,6 +67,11 @@ I did this with `lazy-seq` and `recur` because I wanted to needlessly recurse.  
 Well, it did make me re-curse.
 Clojure type error messages for destructured bindings are still awful and wrapping those errors in a `lazy-seq` makes debugging pretty gosh darn user hostile.  This keeps the rif-raf out. Never change, Clojure.
 
+
+### 7a and 7b
+
+- [src/codes/bauer/aoc2024/07.clj](https://github.com/pmbauer/aoc2024/blob/main/src/codes/bauer/aoc2024/07.clj)
+
 ## Usage
 
 Run the project's tests contained in [Rich Comment Forms](https://github.com/hyperfiddle/rcf):
