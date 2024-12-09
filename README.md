@@ -72,6 +72,9 @@ Clojure type error messages for destructured bindings are still awful and wrappi
 
 - [src/codes/bauer/aoc2024/07.clj](https://github.com/pmbauer/aoc2024/blob/main/src/codes/bauer/aoc2024/07.clj)
 
+### 8a and 8b
+
+- [src/codes/bauer/aoc2024/08.clj](https://github.com/pmbauer/aoc2024/blob/main/src/codes/bauer/aoc2024/08.clj)
 ## Usage
 
 Run the project's tests contained in [Rich Comment Forms](https://github.com/hyperfiddle/rcf):

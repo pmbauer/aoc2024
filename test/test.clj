@@ -4,12 +4,12 @@
    [hyperfiddle.rcf :as rcf]))
 
 (def default-under-test
-  '(codes.bauer.aoc2024.02
-    codes.bauer.aoc2024.03
+  '(codes.bauer.aoc2024.03
     codes.bauer.aoc2024.04
     codes.bauer.aoc2024.05
     codes.bauer.aoc2024.06
-    codes.bauer.aoc2024.07))
+    codes.bauer.aoc2024.07
+    codes.bauer.aoc2024.08))
 
 (defn run [{:keys [namespaces]
             :or {namespaces default-under-test}}]
