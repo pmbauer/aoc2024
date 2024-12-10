@@ -36,8 +36,12 @@
       (dissoc :offset)))
 
 (defn first-free [free-list [offset len]]
-  (first (keep-indexed #(when (and (< (first %2) offset)
-                                   (<= len (second %2))) %1) free-list)))
+  (loop [i 0]
+    (let  [[free-offset free-len :as free] (nth free-list i)]
+      (when (< free-offset offset)
+        (if (<= len free-len)
+          [i free]
+          (recur (inc i)))))))
 
 (defn defrag [coll]
   (let [idx (index-disk coll)
@@ -45,9 +49,8 @@
         (->> (dissoc idx \.) (sort-by first) (reverse)
              (reduce
               (fn [{free \. :as idx} [file [offset len :as pos]]]
-                (if-let [free-index (first-free free pos)]
-                  (let [free-path [\. free-index]
-                        [free-offset free-len] (get-in idx free-path)]
+                (if-let [[free-index [free-offset free-len]] (first-free free pos)]
+                  (let [free-path [\. free-index]]
                     (-> (assoc idx file [free-offset len])
                         (assoc-in free-path [(+ free-offset len) (- free-len len)])
                         (update \. conj [offset len])))
@@ -78,8 +81,9 @@
  (-> example defrag checksum) := 2858)
 
 (comment
+  (def disk (read-disk (slurp (resource "09.in"))))
   ;; part 1
-  (-> (slurp (resource "09.in")) read-disk fragment checksum time)
+  (-> disk fragment checksum time)
   ;; part 2
-  (-> (slurp (resource "09.in")) read-disk defrag checksum time)
+  (-> disk defrag checksum time)
   (comment))
