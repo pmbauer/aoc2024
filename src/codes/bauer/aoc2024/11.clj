@@ -5,13 +5,16 @@
   ([n count] (if (= 0 n) count (recur (quot n 10) (inc count))))
   ([n] (count-digits n 0)))
 
-(defn split [n]
-  (let [ns (str n), len (count ns), mid (quot len 2)]
-    [(Long/parseLong (subs ns 0 mid))
-     (Long/parseLong (subs ns mid len))]))
+(def powers-of-10 (long-array [1 10 100 1000 10000 100000 1000000 10000000 100000000 1000000000]))
+
+(defn split [n len]
+  (let [div (nth powers-of-10 (quot len 2))]
+    [(quot n div) (mod n div)]))
 
 (defn split-even [n]
-  (when (even? (count-digits n)) (split n)))
+  (let [len (count-digits n)]
+    (when (even? len)
+      (split n len))))
 
 (declare blink-stone)
 
@@ -35,6 +38,10 @@
  (blink [125 17] 25) := 55312)
 
 (comment
+  (do (require '[clojure.tools.trace :as t])
+      (t/trace-ns *ns*))
+  (t/untrace-ns *ns*)
+
   (def row [4189 413 82070 61 655813 7478611 0 8])
 
   ;; part 1
