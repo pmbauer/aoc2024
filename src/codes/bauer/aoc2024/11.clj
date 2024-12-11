@@ -29,7 +29,7 @@
 (def blink-stone (memoize blink-stone'))
 
 (defn blink [row n]
-  (reduce +' (map #(blink-stone % n) row)))
+  (reduce +' (pmap #(blink-stone % n) row)))
 
 (tests
  (blink [125 17] 25) := 55312)
