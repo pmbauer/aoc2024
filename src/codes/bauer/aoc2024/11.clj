@@ -1,8 +1,5 @@
 (ns codes.bauer.aoc2024.11
-  (:require [clojure.string :as str]
-            [hyperfiddle.rcf :refer [tests]]))
-
-(def read-row #(map Long/parseLong (str/split % #"\s")))
+  (:require [hyperfiddle.rcf :refer [tests]]))
 
 (defn count-digits
   ([n count] (if (= 0 n) count (recur (quot n 10) (inc count))))
@@ -35,10 +32,10 @@
   (reduce +' (map #(blink-stone % n) row)))
 
 (tests
- (-> (read-row "125 17") (blink 25)) := 55312)
+ (blink [125 17] 25) := 55312)
 
 (comment
-  (def row (read-row "4189 413 82070 61 655813 7478611 0 8"))
+  (def row [4189 413 82070 61 655813 7478611 0 8])
 
   ;; part 1
   (time (blink row 25))
