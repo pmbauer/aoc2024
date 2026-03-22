@@ -2,6 +2,12 @@
 
 ## Problems
 
+<https://adventofcode.com/2024>
+
+## Solutions
+
+1a and 1b are in SQL.  2-11 are in Clojure.
+
 ### 1a
 
 [duckdb](https://duckdb.org/)
@@ -39,42 +45,16 @@ SELECT SUM(loc*count)
 FROM pair_counts;
 ```
 
-### 2a and 2b
+### 2-11
 
-- [src/codes/bauer/aoc2024/02.clj](https://github.com/pmbauer/aoc2024/blob/main/src/codes/bauer/aoc2024/02.clj)
-
-### 3a and 3b
-
-- [src/codes/bauer/aoc2024/03.clj](https://github.com/pmbauer/aoc2024/blob/main/src/codes/bauer/aoc2024/03.clj)
-
-![](https://media.cleanshot.cloud/media/40959/9imKrro1YrToAMNxgSsQL4cJ1RJli1Bwazdmzolf.jpeg?Expires=1733274859&Signature=Xy-cYn03cYOMl4c3mG26-RyRZaFZHMwKITTjhCq2sP7H2SkIGvczoc9K-AQcRVKvDzJc9sZHcigLXi9WPZqecN7lA3aIgpHtwYVkBRL97LgNTY0mgVdVut2RJutiempPCNykRCq~czoBz37v74lnqyjRFNvHZSrvIEtbIG1Aovd2DCLizl1zqVGs~rb82wplzTTMLsvzjdv-6qXfiKshZDGprX6OpYDo35uSiY1fnsx5s8X9mx7q5wDx46sQpadXSR0ajHTfmtLhg64TKWvXhQqAAR1LDGk80XayW4FYfJuS1bc5Zg~fnsR5h7~4w3AFlYLPwyKYw0xD-loYm0BH4g__&Key-Pair-Id=K269JMAT9ZF4GZ)
-
-![](https://media.cleanshot.cloud/media/40959/yJuC0Zoj2ac6ztwQs4BRHNui6xjK09B76NMyBiAx.jpeg?Expires=1733274814&Signature=Qmsv~my-hBDb5BMsfCReAdZgDCptBbsINaTqzi2tINrKH5blEbT-tf3o6d2~z2ulY4SGqDw-LP2jgiZHd4BSjouK89kUhR52ysJU3meR-zNUVL1zxmNTPbLCPuzrdgfoV0ad1FB17dbEUjsKxcqGpRPXUHroAYe~sEk-kgTLh1Z8J~rjRaavnn-Gy6TM9am4GD5lKlz3C9wr6ltyAmetndWFprR-lauI7cjSbxERKfdMMa8RINSNFlIK2TwLmX-breByk2q9h4eKcbgfT6Ae8xisMnR5VJ~D22D58HmW~8mX1SHLKPrsNxACo3aFNpo629j9QS-EG~V0RgPwlGZfjw__&Key-Pair-Id=K269JMAT9ZF4GZ)
-
-### 4a and 4b
-
-- [src/codes/bauer/aoc2024/04.clj](https://github.com/pmbauer/aoc2024/blob/main/src/codes/bauer/aoc2024/04.clj)
-
-### 5a and 5b
-
-- [src/codes/bauer/aoc2024/05.clj](https://github.com/pmbauer/aoc2024/blob/main/src/codes/bauer/aoc2024/05.clj)
+- [sources](https://github.com/pmbauer/aoc2024/blob/main/src/codes/bauer/aoc2024)
 
 ### 6a and 6b
-
-- [src/codes/bauer/aoc2024/06.clj](https://github.com/pmbauer/aoc2024/blob/main/src/codes/bauer/aoc2024/06.clj)
 
 I did this with `lazy-seq` and `recur` because I wanted to needlessly recurse.  For fun.
 Well, it did make me re-curse.
 Clojure type error messages for destructured bindings are still awful and wrapping those errors in a `lazy-seq` makes debugging pretty gosh darn user hostile.  This keeps the rif-raf out. Never change, Clojure.
 
-
-### 7a and 7b
-
-- [src/codes/bauer/aoc2024/07.clj](https://github.com/pmbauer/aoc2024/blob/main/src/codes/bauer/aoc2024/07.clj)
-
-### 8a and 8b
-
-- [src/codes/bauer/aoc2024/08.clj](https://github.com/pmbauer/aoc2024/blob/main/src/codes/bauer/aoc2024/08.clj)
 ## Usage
 
 Run the project's tests contained in [Rich Comment Forms](https://github.com/hyperfiddle/rcf):
